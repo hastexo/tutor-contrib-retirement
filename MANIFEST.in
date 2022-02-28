@@ -1,0 +1,2 @@
+recursive-include tutorretirement/patches *
+recursive-include tutorretirement/templates *
