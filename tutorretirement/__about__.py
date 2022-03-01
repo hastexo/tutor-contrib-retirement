@@ -6,4 +6,4 @@ import pkg_resources
 # options) by:
 # https://packaging.python.org/guides/single-sourcing-package-version/
 __version__ = pkg_resources.get_distribution(
-    'tutor-contrib-webhook-receiver').version
+    'tutor-contrib-retirement').version

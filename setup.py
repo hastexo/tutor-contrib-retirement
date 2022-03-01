@@ -16,7 +16,7 @@ setup(
     url="https://github.com/hastexo/tutor-contrib-retirement",
     project_urls={
         "Code": "https://github.com/hastexo/tutor-contrib-retirement",
-        "Issue tracker": "https://github.com/hastexo/tutor-contrib-retirement/issues",
+        "Issue tracker": "https://github.com/hastexo/tutor-contrib-retirement/issues",  # noqa: E501
     },
     license="AGPLv3",
     author="hastexo",
