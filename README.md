@@ -13,5 +13,21 @@ Installation
 Usage
 -----
 
+To enable this plugin, run:
 
     tutor plugins enable retirement
+
+
+Before starting Tutor, build the docker image:
+
+    tutor images build retirement
+
+
+Configuration
+-------------
+
+* `RETIREMENT_EDX_OAUTH2_CLIENT_ID` (default `"retirement_service_worker"`)
+* `RETIREMENT_COOL_OFF_DAYS` (default `30`)
+
+These values can be modified with `tutor config save --set
+PARAM_NAME=VALUE` commands.

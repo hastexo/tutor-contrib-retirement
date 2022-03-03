@@ -1,0 +1,5 @@
+############# Retirement worker service
+retirement-job:
+  image: {{ RETIREMENT_DOCKER_IMAGE }}
+  depends_on:
+    - lms

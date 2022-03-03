@@ -1,0 +1,13 @@
+# populate retirement states
+./manage.py lms populate_retirement_states
+
+# create a user for retirement service worker
+./manage.py lms manage_user retirement_service_worker retirement_service_worker@openedx --staff --unusable-password
+
+# create OAuth2 client
+./manage.py lms create_dot_application \
+  --client-id {{ RETIREMENT_EDX_OAUTH2_CLIENT_ID }} \
+  --client-secret {{ RETIREMENT_EDX_OAUTH2_CLIENT_SECRET }} \
+  --update \
+  retirement \
+  retirement_service_worker

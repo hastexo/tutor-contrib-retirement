@@ -1,0 +1,8 @@
+client_id: {{ RETIREMENT_EDX_OAUTH2_CLIENT_ID }}
+client_secret: {{ RETIREMENT_EDX_OAUTH2_CLIENT_SECRET }}
+
+base_urls:
+    lms: {{ "https" if ENABLE_HTTPS else "http" }}://{{ LMS_HOST }}
+retirement_pipeline:
+    - ['RETIRING_ENROLLMENTS', 'ENROLLMENTS_COMPLETE', 'LMS', 'retirement_unenroll']
+    - ['RETIRING_LMS', 'LMS_COMPLETE', 'LMS', 'retirement_lms_retire']
