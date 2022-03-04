@@ -21,6 +21,7 @@ config = {
         "EDX_OAUTH2_CLIENT_ID": "retirement_service_worker",
         "COOL_OFF_DAYS": 30,
         "TUBULAR_VERSION": "{{ OPENEDX_COMMON_VERSION }}",
+        "K8S_CRONJOB_SCHEDULE": "0 0 * * *",
     },
 }
 
