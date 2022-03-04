@@ -15,7 +15,7 @@ spec:
             - name: retirement
               image: {{ RETIREMENT_DOCKER_IMAGE }}
               command:
-                - bash
-                - run_retirement_pipeline.sh
-                - {{ RETIREMENT_COOL_OFF_DAYS }}
+                - 'bash'
+                - 'run_retirement_pipeline.sh'
+                - '{{ RETIREMENT_COOL_OFF_DAYS }}'
           restartPolicy: OnFailure
