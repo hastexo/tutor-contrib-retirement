@@ -6,14 +6,16 @@ metadata:
   labels:
     app.kubernetes.io/component: cronjob
 spec:
-  schedule: {{ RETIREMENT_K8S_CRONJOB_SCHEDULE }}
+  schedule: '{{ RETIREMENT_K8S_CRONJOB_SCHEDULE }}'
   jobTemplate:
     spec:
-      containers:
-        - name: retirement
-          image: {{ RETIREMENT_DOCKER_IMAGE }}
-          command:
-            - bash
-            - run_retirement_pipeline.sh
-            - {{ RETIREMENT_COOL_OFF_DAYS }}
-        restartPolicy: OnFailure
+      template:
+        spec:
+          containers:
+            - name: retirement
+              image: {{ RETIREMENT_DOCKER_IMAGE }}
+              command:
+                - bash
+                - run_retirement_pipeline.sh
+                - {{ RETIREMENT_COOL_OFF_DAYS }}
+          restartPolicy: OnFailure
