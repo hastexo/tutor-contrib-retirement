@@ -18,4 +18,12 @@ spec:
                 - 'bash'
                 - 'run_retirement_pipeline.sh'
                 - '{{ RETIREMENT_COOL_OFF_DAYS }}'
+              volumeMounts:
+                - name: pipeline-config
+                  mountPath: '/tubular/pipeline_config/config.yml'
+                  subPath: config.yml
+          volumes:
+            - name: pipeline-config
+              configMap:
+                name: retirement-pipeline-configmap
           restartPolicy: OnFailure

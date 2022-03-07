@@ -1,5 +1,7 @@
 ############# Retirement worker service
 retirement-job:
   image: {{ RETIREMENT_DOCKER_IMAGE }}
+  volumes:
+    - ../plugins/retirement/build/retirement/pipeline_config:/tubular/pipeline_config
   depends_on:
     - lms
