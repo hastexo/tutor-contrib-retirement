@@ -44,7 +44,7 @@ def retire_users(context):
     cool_off_days = config["RETIREMENT_COOL_OFF_DAYS"]
     job_runner.run_job(
         service="retirement",
-        command=f"bash run_retirement_pipeline.sh {cool_off_days}"
+        command=f"bash -e run_retirement_pipeline.sh {cool_off_days}"
     )
 
 

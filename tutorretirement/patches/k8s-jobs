@@ -16,6 +16,7 @@ spec:
               image: {{ RETIREMENT_DOCKER_IMAGE }}
               command:
                 - 'bash'
+                - '-e'
                 - 'run_retirement_pipeline.sh'
                 - '{{ RETIREMENT_COOL_OFF_DAYS }}'
               volumeMounts:
