@@ -38,12 +38,17 @@ invoke this command from a cron job on your host.
 For a Kubernetes deployment, this plugin defines a [CronJob](https://kubernetes.io/docs/concepts/workloads/controllers/cron-jobs/) 
 which runs the retirement pipeline according to the schedule defined in 
 the `RETIREMENT_K8S_CRONJOB_SCHEDULE` configuration parameter.
+You can also tweak the [history
+limits](https://kubernetes.io/docs/tasks/job/automated-tasks-with-cron-jobs/#jobs-history-limits)
+for the CronJob.
 
 Configuration
 -------------
 
 * `RETIREMENT_EDX_OAUTH2_CLIENT_ID` (default `"retirement_service_worker"`)
 * `RETIREMENT_COOL_OFF_DAYS` (default `30`)
+* `RETIREMENT_K8S_CRONJOB_HISTORYLIMIT_FAILURE` (default `1`)
+* `RETIREMENT_K8S_CRONJOB_HISTORYLIMIT_SUCCESS` (default `3`)
 * `RETIREMENT_K8S_CRONJOB_SCHEDULE` (default `"0 0 * * *"`, once a day at 
   midnight)
 

@@ -6,7 +6,9 @@ metadata:
   labels:
     app.kubernetes.io/component: cronjob
 spec:
+  failedJobsHistoryLimit: {{ RETIREMENT_K8S_CRONJOB_HISTORYLIMIT_FAILURE }}
   schedule: '{{ RETIREMENT_K8S_CRONJOB_SCHEDULE }}'
+  successfulJobsHistoryLimit: {{ RETIREMENT_K8S_CRONJOB_HISTORYLIMIT_SUCCESS }}
   jobTemplate:
     spec:
       template:
