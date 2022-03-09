@@ -1,1 +1,44 @@
 RETIREMENT_SERVICE_WORKER_USERNAME = 'retirement_service_worker'
+
+RETIREMENT_STATES = [
+    'PENDING',
+
+    'LOCKING_ACCOUNT',
+    'LOCKING_COMPLETE',
+
+    'RETIRING_EMAIL_LISTS',
+    'EMAIL_LISTS_COMPLETE',
+
+    'RETIRING_ENROLLMENTS',
+    'ENROLLMENTS_COMPLETE',
+
+    {% if FORUM_VERSION is defined %}
+    'RETIRING_FORUMS',
+    'FORUMS_COMPLETE',
+    {% endif %}
+
+    {% if ECOMMERCE_HOST is defined %}
+    'RETIRING_ECOMMERCE',
+    'ECOMMERCE_COMPLETE',
+    {% endif %}
+
+    {% if DISCOVERY_HOST is defined %}
+    'RETIRING_DISCOVERY',
+    'DISCOVERY_COMPLETE',
+    {% endif %}
+
+    {% if NOTES_HOST is defined %}
+    'RETIRING_NOTES',
+    'NOTES_COMPLETE',
+    {% endif %}
+
+    'RETIRING_LMS_MISC',
+    'LMS_MISC_COMPLETE',
+
+    'RETIRING_LMS',
+    'LMS_COMPLETE',
+
+    'ERRORED',
+    'ABORTED',
+    'COMPLETE',
+]
