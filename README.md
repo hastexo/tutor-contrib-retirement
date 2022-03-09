@@ -8,7 +8,7 @@ feature](https://edx.readthedocs.io/projects/edx-installing-configuring-and-runn
 Installation
 ------------
 
-    pip install git+https://github.com/hastexo/tutor-contrib-retirement@v0.0.0
+    pip install git+https://github.com/hastexo/tutor-contrib-retirement@v0.0.1
 
 Usage
 -----
