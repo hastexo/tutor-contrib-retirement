@@ -3,16 +3,13 @@ from glob import glob
 import os
 import pkg_resources
 import click
+from tutor import hooks
 from tutor import config as tutor_config
 from tutor.commands.local import local as local_command_group
 
 
-templates = pkg_resources.resource_filename(
-    "tutorretirement", "templates"
-)
-
 config = {
-    "add": {
+    "unique": {
         "EDX_OAUTH2_CLIENT_SECRET": "{{ 32|random_string }}",
     },
     "defaults": {
@@ -27,15 +24,26 @@ config = {
     },
 }
 
-hooks = {
-    "build-image": {
-        "retirement": "{{ RETIREMENT_DOCKER_IMAGE }}",
-    },
-    "remote-image": {
-        "retirement": "{{ RETIREMENT_DOCKER_IMAGE }}",
-    },
-    "init": ["lms"]
-}
+
+hooks.Filters.COMMANDS_INIT.add_item((
+    "lms",
+    ("retirement", "tasks", "lms", "init"),
+))
+
+hooks.Filters.IMAGES_BUILD.add_item((
+    "retirement",
+    ("plugins", "retirement", "build", "retirement"),
+    "{{ RETIREMENT_DOCKER_IMAGE }}",
+    (),
+))
+hooks.Filters.IMAGES_PULL.add_item((
+    "retirement",
+    "{{ RETIREMENT_DOCKER_IMAGE }}",
+))
+hooks.Filters.IMAGES_PUSH.add_item((
+    "retirement",
+    "{{ RETIREMENT_DOCKER_IMAGE }}",
+))
 
 
 @local_command_group.command(help="Run the retirement pipeline")
@@ -50,14 +58,41 @@ def retire_users(context):
     )
 
 
-def patches():
-    all_patches = {}
-    patches_dir = pkg_resources.resource_filename(
-        "tutorretirement", "patches"
+# Add the "templates" folder as a template root
+hooks.Filters.ENV_TEMPLATE_ROOTS.add_item(
+    pkg_resources.resource_filename("tutorretirement", "templates")
+)
+# Render the "build" and "apps" folders
+hooks.Filters.ENV_TEMPLATE_TARGETS.add_items(
+    [
+        ("retirement/build", "plugins"),
+        ("retirement/apps", "plugins"),
+    ],
+)
+# Load patches from files
+for path in glob(
+    os.path.join(
+        pkg_resources.resource_filename("tutorretirement", "patches"),
+        "*",
     )
-    for path in glob(os.path.join(patches_dir, "*")):
-        with open(path) as patch_file:
-            name = os.path.basename(path)
-            content = patch_file.read()
-            all_patches[name] = content
-    return all_patches
+):
+    with open(path, encoding="utf-8") as patch_file:
+        hooks.Filters.ENV_PATCHES.add_item(
+            (os.path.basename(path), patch_file.read())
+        )
+# Add configuration entries
+hooks.Filters.CONFIG_DEFAULTS.add_items(
+    [
+        (f"RETIREMENT_{key}", value)
+        for key, value in config.get("defaults", {}).items()
+    ]
+)
+hooks.Filters.CONFIG_UNIQUE.add_items(
+    [
+        (f"RETIREMENT_{key}", value)
+        for key, value in config.get("unique", {}).items()
+    ]
+)
+hooks.Filters.CONFIG_OVERRIDES.add_items(
+    list(config.get("overrides", {}).items())
+)
