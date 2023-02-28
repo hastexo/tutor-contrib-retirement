@@ -24,12 +24,6 @@ config = {
     },
 }
 
-
-hooks.Filters.COMMANDS_INIT.add_item((
-    "lms",
-    ("retirement", "tasks", "lms", "init"),
-))
-
 hooks.Filters.IMAGES_BUILD.add_item((
     "retirement",
     ("plugins", "retirement", "build", "retirement"),
@@ -52,7 +46,7 @@ def retire_users(context):
     config = tutor_config.load(context.root)
     job_runner = context.job_runner(config)
     cool_off_days = config["RETIREMENT_COOL_OFF_DAYS"]
-    job_runner.run_job(
+    job_runner.run_task(
         service="retirement",
         command=f"bash -e run_retirement_pipeline.sh {cool_off_days}"
     )
@@ -96,3 +90,12 @@ hooks.Filters.CONFIG_UNIQUE.add_items(
 hooks.Filters.CONFIG_OVERRIDES.add_items(
     list(config.get("overrides", {}).items())
 )
+
+# Add init task
+path = pkg_resources.resource_filename(
+    "tutorretirement", os.path.join(
+        "templates", "retirement", "tasks", "lms", "init")
+)
+with open(path, encoding="utf-8") as task_file:
+    init_task = task_file.read()
+    hooks.Filters.CLI_DO_INIT_TASKS.add_item(("lms", init_task))
