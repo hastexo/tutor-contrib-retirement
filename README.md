@@ -28,7 +28,7 @@ appropriate one:
 Installation
 ------------
 
-    pip install git+https://github.com/hastexo/tutor-contrib-retirement@v1.0.0
+    pip install git+https://github.com/hastexo/tutor-contrib-retirement@v2.0.0
 
 Usage
 -----
