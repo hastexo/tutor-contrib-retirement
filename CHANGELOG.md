@@ -1,3 +1,7 @@
+## Unreleased
+
+* [Enhancement] Support the Open edX `palm.4` release.
+
 ## Version 3.0.0 (2023-10-25)
 
 * [Enhancement] Support the Open edX `palm.3` release. Drop
