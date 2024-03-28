@@ -1,7 +1,6 @@
 ############# Retirement worker service
 retirement-job:
-  image: {{ RETIREMENT_DOCKER_IMAGE }}
+  image: {{ DOCKER_IMAGE_OPENEDX }}
   volumes:
-    - ../plugins/retirement/build/retirement/pipeline_config:/tubular/pipeline_config
-  depends_on:
-    - lms
+    - ../plugins/retirement/apps/retirement:/openedx/edx-platform/scripts/user_retirement
+
