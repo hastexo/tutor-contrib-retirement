@@ -30,7 +30,7 @@ appropriate one:
 Installation
 ------------
 
-    pip install git+https://github.com/hastexo/tutor-contrib-retirement@v3.2.0
+    pip install git+https://github.com/hastexo/tutor-contrib-retirement@v3.3.0
 
 Usage
 -----
