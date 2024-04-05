@@ -22,7 +22,7 @@ appropriate one:
 | Palm             | `>=16.0, <17`     | `main`        | 3.x.x          |
 | Quince           | `>=17.0, <18`     | `main`        | 3.x.x          |
 
-[^1]: For Open edX Maple and Tutor 13, you must run version 13.2.0 or
+[^1]: For Open edX Maple and Tutor 13, you must run version 13.3.0 or
 ￼   later. That is because this plugin uses the Tutor v1 plugin API,
 ￼   [which was introduced with that
 ￼   release](https://github.com/overhangio/tutor/blob/master/CHANGELOG.md#v1320-2022-04-24).
@@ -30,7 +30,7 @@ appropriate one:
 Installation
 ------------
 
-    pip install git+https://github.com/hastexo/tutor-contrib-retirement@v3.2.0
+    pip install git+https://github.com/hastexo/tutor-contrib-retirement@v3.3.0
 
 Usage
 -----
