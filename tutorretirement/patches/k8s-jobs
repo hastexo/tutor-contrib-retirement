@@ -15,16 +15,19 @@ spec:
         spec:
           containers:
             - name: retirement
-              image: {{ RETIREMENT_DOCKER_IMAGE }}
+              image: {{ DOCKER_IMAGE_OPENEDX }}
               command:
                 - 'bash'
                 - '-e'
-                - 'run_retirement_pipeline.sh'
+                - '/openedx/edx-platform/scripts/user_retirement/run_retirement_pipeline.sh'
                 - '{{ RETIREMENT_COOL_OFF_DAYS }}'
               volumeMounts:
                 - name: pipeline-config
-                  mountPath: '/tubular/pipeline_config/config.yml'
+                  mountPath: '/openedx/edx-platform/scripts/user_retirement/config.yml'
                   subPath: config.yml
+                - name: pipeline-run
+                  mountPath: '/openedx/edx-platform/scripts/user_retirement/run_retirement_pipeline.sh'
+                  subPath: run_retirement_pipeline.sh
           volumes:
             - name: pipeline-config
               configMap:

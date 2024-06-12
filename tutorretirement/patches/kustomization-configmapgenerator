@@ -1,3 +1,4 @@
 - name: retirement-pipeline-configmap
   files:
-    - plugins/retirement/build/retirement/pipeline_config/config.yml
+    - plugins/retirement/apps/retirement/config.yml
+    - plugins/retirement/apps/retirement/run_retirement_pipeline.sh
