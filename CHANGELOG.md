@@ -1,4 +1,4 @@
-## Unreleased
+## Version 3.3.1 (2024-07-03)
 
 * [Bug fix] Drop support for retiring users in the [Open edX E-Commerce Service](https://github.com/openedx/ecommerce).
   Per the discussion in [Issue #36](https://github.com/hastexo/tutor-contrib-retirement/issues/36), account retirement for the E-Commerce Service "will never" work and "has never" worked, thus this is not a breaking change.
