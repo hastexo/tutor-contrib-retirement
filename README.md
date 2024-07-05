@@ -31,9 +31,10 @@ appropriate one:
 Limitations
 ------------
 
-This plugin cannot be used for retiring accounts in the [Open edX E-Commerce Service](https://github.com/openedx/ecommerce).[^ecom]
+This plugin cannot be used for retiring accounts in the [Open edX E-Commerce Service](https://github.com/openedx/ecommerce),[^ecom] nor the [Course Discovery Service](https://github.com/openedx/course-discovery).[^discovery].
 
-[^ecom]: See [Issue #36](https://github.com/hastexo/tutor-contrib-retirement/issues/36) in this repository for a related discussion of missing functionality in E-Commerce account retirement.
+[^ecom]: See [Issue #36](https://github.com/hastexo/tutor-contrib-retirement/issues/36) for background.
+[^discovery]: See [Issue #39](https://github.com/hastexo/tutor-contrib-retirement/issues/39) for background.
 
 
 Installation

@@ -3,12 +3,10 @@ client_secret: {{ RETIREMENT_EDX_OAUTH2_CLIENT_SECRET }}
 
 base_urls:
     lms: {{ "https" if ENABLE_HTTPS else "http" }}://{{ LMS_HOST }}
-    {% if DISCOVERY_HOST is defined %}discovery: {{ "https" if ENABLE_HTTPS else "http" }}://{{ DISCOVERY_HOST }}{% endif %}
     {% if NOTES_HOST is defined %}notes: {{ "https" if ENABLE_HTTPS else "http" }}://{{ NOTES_HOST }}{% endif %}
 
 retirement_pipeline:
     {% if FORUM_VERSION is defined %}- [ 'RETIRING_FORUMS', 'FORUMS_COMPLETE', 'LMS', 'retirement_retire_forum' ]{% endif %}
-    {% if DISCOVERY_HOST is defined %}- [ 'RETIRING_DISCOVERY', 'DISCOVERY_COMPLETE', 'DISCOVERY', 'replace_usernames' ]{% endif %}
     {% if NOTES_HOST is defined %}- [ 'RETIRING_NOTES', 'NOTES_COMPLETE', 'LMS', 'retirement_retire_notes' ]{% endif %}
     - [ 'RETIRING_EMAIL_LISTS', 'EMAIL_LISTS_COMPLETE', 'LMS', 'retirement_retire_mailings' ]
     - [ 'RETIRING_ENROLLMENTS', 'ENROLLMENTS_COMPLETE', 'LMS', 'retirement_unenroll' ]

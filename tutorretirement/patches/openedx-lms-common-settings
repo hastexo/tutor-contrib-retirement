@@ -17,11 +17,6 @@ RETIREMENT_STATES = [
     'FORUMS_COMPLETE',
     {% endif %}
 
-    {% if DISCOVERY_HOST is defined %}
-    'RETIRING_DISCOVERY',
-    'DISCOVERY_COMPLETE',
-    {% endif %}
-
     {% if NOTES_HOST is defined %}
     'RETIRING_NOTES',
     'NOTES_COMPLETE',
