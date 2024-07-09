@@ -1,6 +1,7 @@
 ## Unreleased
 
 * [Bug fix] Complete the removal of (not-ever-working) support for the Ecommerce service, by also removing references to that service from the `openedx-lms-common-settings` patch.
+* [Bug fix] Remove references to the mailing API (which in turn was removed from the LMS in Ironwood).
 * [Bug fix] Remove references to the (not-ever-working) Discovery service.
 
 ## Version 3.3.1 (2024-07-03)
