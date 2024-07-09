@@ -6,8 +6,8 @@ base_urls:
     {% if NOTES_HOST is defined %}notes: {{ "https" if ENABLE_HTTPS else "http" }}://{{ NOTES_HOST }}{% endif %}
 
 retirement_pipeline:
+    - [ 'RETIRING_ENROLLMENTS', 'ENROLLMENTS_COMPLETE', 'LMS', 'retirement_unenroll' ]
     {% if FORUM_VERSION is defined %}- [ 'RETIRING_FORUMS', 'FORUMS_COMPLETE', 'LMS', 'retirement_retire_forum' ]{% endif %}
     {% if NOTES_HOST is defined %}- [ 'RETIRING_NOTES', 'NOTES_COMPLETE', 'LMS', 'retirement_retire_notes' ]{% endif %}
-    - [ 'RETIRING_ENROLLMENTS', 'ENROLLMENTS_COMPLETE', 'LMS', 'retirement_unenroll' ]
     - [ 'RETIRING_LMS_MISC', 'LMS_MISC_COMPLETE', 'LMS', 'retirement_lms_retire_misc' ]
     - [ 'RETIRING_LMS', 'LMS_COMPLETE', 'LMS', 'retirement_lms_retire' ]
