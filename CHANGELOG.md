@@ -1,3 +1,7 @@
+## Unreleased
+
+* [Bug fix] Complete the removal of (not-ever-working) support for the Ecommerce service, by also removing references to that service from the `openedx-lms-common-settings` patch.
+
 ## Version 3.3.1 (2024-07-03)
 
 * [Bug fix] Drop support for retiring users in the [Open edX E-Commerce Service](https://github.com/openedx/ecommerce).
