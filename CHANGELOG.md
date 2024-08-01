@@ -1,4 +1,4 @@
-## Unreleased
+## Version 3.4.0 (2024-08-01)
 
 * [Bug fix] Complete the removal of (not-ever-working) support for the Ecommerce service, by also removing references to that service from the `openedx-lms-common-settings` patch.
 * [Bug fix] Remove references to the mailing API (which in turn was removed from the LMS in Ironwood).
