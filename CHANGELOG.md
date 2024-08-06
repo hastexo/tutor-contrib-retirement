@@ -1,4 +1,4 @@
-## Unreleased
+## Version 4.0.0 (2024-08-06)
 
 * [BREAKING CHANGE] Add support for Tutor 18 and Open edX Redwood.
   The Tubular repository has been deprecated and the relevant scripts
