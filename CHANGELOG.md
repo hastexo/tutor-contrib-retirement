@@ -1,3 +1,9 @@
+## Unreleased
+
+* [BREAKING CHANGE] Add support for Tutor 18 and Open edX Redwood.
+  The Tubular repository has been deprecated and the relevant scripts
+  have been moved to the `edx-platform` repository (https://github.com/openedx/axim-engineering/issues/881); the plugin now installs the scripts from there.
+
 ## Version 3.4.0 (2024-08-01)
 
 * [Bug fix] Complete the removal of (not-ever-working) support for the Ecommerce service, by also removing references to that service from the `openedx-lms-common-settings` patch.

@@ -19,11 +19,11 @@ spec:
               command:
                 - 'bash'
                 - '-e'
-                - 'run_retirement_pipeline.sh'
+                - 'scripts/user_retirement/run_retirement_pipeline.sh'
                 - '{{ RETIREMENT_COOL_OFF_DAYS }}'
               volumeMounts:
                 - name: pipeline-config
-                  mountPath: '/tubular/pipeline_config/config.yml'
+                  mountPath: '/edx-platform/scripts/user_retirement/pipeline_config/config.yml'
                   subPath: config.yml
           volumes:
             - name: pipeline-config

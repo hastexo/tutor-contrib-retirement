@@ -2,6 +2,6 @@
 retirement-job:
   image: {{ RETIREMENT_DOCKER_IMAGE }}
   volumes:
-    - ../plugins/retirement/build/retirement/pipeline_config:/tubular/pipeline_config
+    - ../plugins/retirement/build/retirement/pipeline_config:/edx-platform/scripts/user_retirement/pipeline_config
   depends_on:
     - lms

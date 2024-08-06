@@ -20,7 +20,6 @@ config = {
         "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}retirement:{{ RETIREMENT_VERSION }}",  # noqa: E501
         "EDX_OAUTH2_CLIENT_ID": "retirement_service_worker",
         "COOL_OFF_DAYS": 30,
-        "TUBULAR_VERSION": "{{ OPENEDX_COMMON_VERSION }}",
         "K8S_CRONJOB_HISTORYLIMIT_FAILURE": 1,
         "K8S_CRONJOB_HISTORYLIMIT_SUCCESS": 3,
         "K8S_CRONJOB_SCHEDULE": "0 0 * * *",
@@ -51,7 +50,8 @@ def retire_users(context):
     cool_off_days = config["RETIREMENT_COOL_OFF_DAYS"]
     job_runner.run_task(
         service="retirement",
-        command=f"bash -e run_retirement_pipeline.sh {cool_off_days}"
+        command="bash -e scripts/user_retirement/run_retirement_pipeline.sh "
+                f"{cool_off_days}"
     )
 
 

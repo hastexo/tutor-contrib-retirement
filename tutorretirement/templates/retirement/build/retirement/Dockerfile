@@ -3,9 +3,9 @@ ENV PYTHONUNBUFFERED 1
 RUN python3 -m venv /retirement/venv/
 ENV PATH "/retirement/venv/bin:$PATH"
 RUN apt-get update && \
-    git clone --depth 1 --branch {{ RETIREMENT_TUBULAR_VERSION }} https://github.com/openedx/tubular.git ./tubular
-WORKDIR ./tubular
-COPY run_retirement_pipeline.sh .
+    git clone --depth 1 --branch {{ OPENEDX_COMMON_VERSION }} https://github.com/openedx/edx-platform.git 
+WORKDIR ./edx-platform
+COPY run_retirement_pipeline.sh scripts/user_retirement/
 RUN pip install --upgrade pip && \
-    pip install -r requirements.txt --exists-action w && \
-    mkdir learners_to_retire
+    pip install -r scripts/user_retirement/requirements/base.txt --exists-action w && \
+    mkdir scripts/user_retirement/learners_to_retire
