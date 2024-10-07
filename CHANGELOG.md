@@ -1,4 +1,4 @@
-## Unreleased
+## Version 5.0.0 (2024-10-07)
 
 * Drop support for Python 3.8.
 
