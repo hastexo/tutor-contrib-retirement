@@ -26,7 +26,7 @@ setup(
     packages=find_packages(exclude=["tests*"]),
     include_package_data=True,
     python_requires=">=3.9",
-    install_requires=["tutor <19, >=16.1.7"],
+    install_requires=["tutor <20, >=16.1.7"],
     setup_requires=["setuptools-scm"],
     entry_points={
         "tutor.plugin.v1": [
