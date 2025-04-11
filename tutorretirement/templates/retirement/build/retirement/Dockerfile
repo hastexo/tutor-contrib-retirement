@@ -1,4 +1,4 @@
-FROM python:3.11
+FROM {{ RETIREMENT_BASE_IMAGE }}
 ENV PYTHONUNBUFFERED 1
 RUN python3 -m venv /retirement/venv/
 ENV PATH "/retirement/venv/bin:$PATH"

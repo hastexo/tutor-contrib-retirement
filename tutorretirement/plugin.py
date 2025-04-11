@@ -17,6 +17,7 @@ config = {
     },
     "defaults": {
         "VERSION": __version__,
+        "BASE_IMAGE": "docker.io/python:3.11",
         "DOCKER_IMAGE": "{{ DOCKER_REGISTRY }}retirement:{{ RETIREMENT_VERSION }}",  # noqa: E501
         "EDX_OAUTH2_CLIENT_ID": "retirement_service_worker",
         "COOL_OFF_DAYS": 30,
