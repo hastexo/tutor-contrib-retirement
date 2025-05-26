@@ -1,3 +1,7 @@
+## Unreleased
+
+* [Chore] Create a new patch release for a convenient `sumac.3` upgrade.
+
 ## Version 5.2.0 (2025-04-15)
 
 * [Enhancement] Allow to override the Dockerfile base image.
