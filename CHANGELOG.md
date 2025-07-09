@@ -1,3 +1,7 @@
+## Unreleased
+
+* [Enhancement] Support Tutor 20 and Open edX Teak.
+
 ## Version 5.2.1 (2025-05-26)
 
 * [Chore] Create a new patch release for a convenient `sumac.3` upgrade.
