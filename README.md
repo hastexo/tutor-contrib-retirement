@@ -43,7 +43,7 @@ This plugin cannot be used for retiring accounts in the [Open edX E-Commerce S
 Installation
 ------------
 
-    pip install git+https://github.com/hastexo/tutor-contrib-retirement@v5.2.1
+    pip install git+https://github.com/hastexo/tutor-contrib-retirement@v5.3.0
 
 Usage
 -----
